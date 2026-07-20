@@ -4,7 +4,7 @@ export interface Env {
   CACHE_TTL_SECONDS?: string;
 }
 
-const HELP = `arom2rss — GitHub Atom feed to RSS 2.0 converter
+const HELP = `atom2rss — GitHub Atom feed to RSS 2.0 converter
 
 Usage:
   /<path of a github.com atom feed>
@@ -63,7 +63,7 @@ export default {
     try {
       upstream = await fetch(target.toString(), {
         headers: {
-          "user-agent": "arom2rss (+https://github.com/entoten/arom2rss)",
+          "user-agent": "atom2rss (+https://github.com/entoten/atom2rss)",
           accept: "application/atom+xml, application/xml, text/xml",
         },
         redirect: "follow",

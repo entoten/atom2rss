@@ -1,5 +1,5 @@
 {
-  "name": "arom2rss",
+  "name": "atom2rss",
   "version": "1.0.0",
   "private": true,
   "description": "Cloudflare Worker that converts GitHub Atom feeds to RSS 2.0 for the Microsoft Teams RSS app",
