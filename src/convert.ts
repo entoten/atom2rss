@@ -130,7 +130,7 @@ export function atomToRss(atomXml: string): string {
     `    <link>${escapeXml(channelLink)}</link>`,
     `    <description>${escapeXml(channelDescription)}</description>`,
     lastBuildDate ? `    <lastBuildDate>${lastBuildDate}</lastBuildDate>` : "",
-    `    <generator>arom2rss</generator>`,
+    `    <generator>atom2rss</generator>`,
     items,
   ].filter(Boolean);
 
