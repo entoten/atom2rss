@@ -4,4 +4,4 @@ compatibility_date = "2026-07-01"
 
 # キャッシュ秒数(GitHub への再フェッチ間隔)。必要なら変更してください。
 [vars]
-CACHE_TTL_SECONDS = "300"
+CACHE_TTL_SECONDS = "3600"
