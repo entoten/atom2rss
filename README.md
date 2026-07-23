@@ -20,6 +20,8 @@ Worker の URL に、github.com の Atom フィードのパスをそのまま付
 | タグ | `https://github.com/OWNER/REPO/tags.atom` | `https://atom2rss.<subdomain>.workers.dev/OWNER/REPO/tags.atom` |
 | ユーザーの活動 | `https://github.com/USER.atom` | `https://atom2rss.<subdomain>.workers.dev/USER.atom` |
 
+末尾を `.atom` の代わりに `.xml` にしても同じフィードを返します(例: `releases.xml` → `releases.atom` として取得)。URL の拡張子まで見るリーダー向けの互換エイリアスです。
+
 クエリ文字列はそのまま GitHub に渡されます(プライベートフィードの `?token=...` も利用可)。
 取得先は `github.com` のパス(`.atom` で終わるもの)に固定しているため、オープンプロキシにはなりません。
 
