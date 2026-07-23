@@ -11,6 +11,7 @@ Usage:
 
 Examples:
   /cloudflare/workers-sdk/releases.atom
+  /cloudflare/workers-sdk/releases.xml    (alias for releases.atom)
   /cloudflare/workers-sdk/commits/main.atom
   /cloudflare/workers-sdk/tags.atom
   /torvalds.atom                      (user activity)
@@ -45,11 +46,16 @@ export default {
       return errorResponse(404, "Not found");
     }
 
-    // オープンプロキシ化を防ぐため、取得先は github.com のパスに固定する
-    if (!url.pathname.endsWith(".atom")) {
-      return errorResponse(400, "Path must be a GitHub Atom feed path ending in .atom");
+    // .xml は .atom のエイリアス(URL の拡張子まで見るリーダー向けの互換用)
+    let githubPath = url.pathname;
+    if (githubPath.endsWith(".xml")) {
+      githubPath = githubPath.slice(0, -4) + ".atom";
     }
-    const target = new URL(`https://github.com${url.pathname}${url.search}`);
+    // オープンプロキシ化を防ぐため、取得先は github.com のパスに固定する
+    if (!githubPath.endsWith(".atom")) {
+      return errorResponse(400, "Path must be a GitHub Atom feed path ending in .atom or .xml");
+    }
+    const target = new URL(`https://github.com${githubPath}${url.search}`);
 
     const ttl = Math.max(60, Number(env.CACHE_TTL_SECONDS) || 300);
     const cache = caches.default;
